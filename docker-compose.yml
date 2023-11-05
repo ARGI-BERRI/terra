@@ -15,6 +15,15 @@ services:
     container_name: terra-node-exporter
     restart: always
 
+  victoriametrics:
+    image: victoriametrics/victoria-metrics:latest
+    container_name: terra-victoriametrics
+    ports:
+      - 9091:8428
+    volumes:
+      - ./docker/victoria-metrics:/victoria-metrics-data
+    restart: always
+
   grafana:
     image: grafana/grafana:main
     container_name: terra-grafana

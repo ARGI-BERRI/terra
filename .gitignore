@@ -145,3 +145,4 @@ dist
 
 build/
 resources/**.json
+docker/victoria-metrics
