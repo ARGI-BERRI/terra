@@ -1,0 +1,16 @@
+global:
+  scrape_interval: 15s
+  scrape_timeout: 10s
+  evaluation_interval: 15s
+
+scrape_configs:
+  - job_name: prometheus
+    metrics_path: /metrics
+    static_configs:
+      - targets:
+          - terra-prometheus:9090
+  - job_name: node
+    metrics_path: /metrics
+    static_configs:
+      - targets:
+          - terra-node-exporter:9100

@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  prometheus:
+    image: prom/prometheus:main
+    container_name: terra-prometheus
+    ports:
+      - 9090:9090
+    volumes:
+      - ./docker/prometheus:/etc/prometheus
+      - ./docker/prometheus/data:/etc/prometheus/data
+    restart: always
+
+  node-exporter:
+    image: prom/node-exporter
+    container_name: terra-node-exporter
+    restart: always
+
+  grafana:
+    image: grafana/grafana:main
+    container_name: terra-grafana
+    ports:
+      - 9092:3000
+    volumes:
+      - ./docker/grafana:/var/lib/grafana
+    restart: always
