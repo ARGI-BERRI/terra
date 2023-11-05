@@ -1,14 +1,17 @@
 import { promises as fs } from "fs";
 import { log } from "console";
-import { getDevices } from "./api";
+import { getDeviceStatus, getDevices } from "./api";
 
 const devices = await getDevices();
-
-try {
-  await fs.mkdir("./resources");
-} catch (_) {
-  // NOTE: フォルダが存在する場合ここに到達するが、何もしない
-}
-
-await fs.writeFile("./resources/devices.json", devices);
+fs.writeFile("./resources/devices.json", JSON.stringify(devices, null, "  "));
 log(devices);
+
+for (const device of devices) {
+  const deviceId = device.deviceId;
+  const deviceStatus = await getDeviceStatus(deviceId);
+
+  fs.writeFile(
+    `./resources/device_${deviceId}.json`,
+    JSON.stringify(deviceStatus, null, " "),
+  );
+}
