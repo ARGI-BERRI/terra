@@ -27,6 +27,7 @@ services:
   grafana:
     image: grafana/grafana:main
     container_name: terra-grafana
+    user: "$PID:$GID"
     ports:
       - 9092:3000
     volumes:
