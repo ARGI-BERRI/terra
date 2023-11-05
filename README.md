@@ -8,10 +8,10 @@ Terra runs with Switchbot clusters, so you have to prepare them prior to use thi
 
 ## System structure
 
-- Everything is on the Docker container.
-- Terra to watch Switchbot devices and send telemetry
-- InfluxDB(?) to collect telemetry
-- Grafana to visualize telemetry
+- docker compose
+- _Terra_
+- Prometheus
+- Grafana
 
 ## Developing
 
