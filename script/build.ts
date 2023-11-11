@@ -1,7 +1,7 @@
 import { context } from "esbuild";
 import { notifyPlugin } from "./plugin";
 
-const ctx = await context({
+export const ctx = await context({
   entryPoints: ["./src/**/*.ts"],
   outdir: "build",
   platform: "node",
@@ -13,6 +13,6 @@ const ctx = await context({
   },
 });
 
-await ctx.watch();
-
-console.log("watching");
+if (process.env.BUILD === "Docker") {
+  ctx.dispose();
+}

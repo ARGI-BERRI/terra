@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "build": "tsx script/build.ts",
+    "watch": "tsx script/watch.ts",
     "start": "node --env-file=.env ./build/server.js"
   },
   "keywords": [],
