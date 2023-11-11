@@ -8,6 +8,9 @@ const ctx = await context({
   format: "esm",
   bundle: true,
   plugins: [notifyPlugin],
+  banner: {
+    js: "import { createRequire } from 'module'; const require = createRequire(import.meta.url);",
+  },
 });
 
 await ctx.watch();
