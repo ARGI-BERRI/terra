@@ -1,12 +1,8 @@
-import Fastify from "fastify";
+import fastify from "fastify";
 import { getMetrics } from "./exporter";
 
-const server = Fastify({
+const server = fastify({
   logger: true,
-});
-
-server.get("/", async function handler() {
-  return { version: "v1.0.0", codename: "Γη" };
 });
 
 server.get("/metrics", async function handler() {
