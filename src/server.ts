@@ -1,5 +1,5 @@
 import Fastify from "fastify";
-import { getMetrics, registerMetrics } from "./exporter";
+import { getMetrics } from "./exporter";
 
 const server = Fastify({
   logger: true,
@@ -14,7 +14,6 @@ server.get("/metrics", async function handler() {
 });
 
 try {
-  await registerMetrics();
   await server.listen({ port: 3000 });
 } catch (error) {
   server.log.error(error);
