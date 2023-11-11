@@ -22,6 +22,20 @@ interface Device {
   hubDeviceId: string;
 }
 
+export interface Hub {
+  temperature: number;
+  humidity: number;
+  lightLevel: number;
+}
+
+export interface Plug {
+  power: "on" | "off";
+  voltage: number;
+  weight: number;
+  electricityOfDay: number;
+  electricCurrent: number;
+}
+
 export async function getDevices(): Promise<Device[]> {
   const endpoint = `${BASE_URL}/devices`;
   const devices = (await fetchAPI(endpoint)).deviceList;
