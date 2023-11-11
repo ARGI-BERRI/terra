@@ -48,7 +48,7 @@ const electricCurrent = new Gauge({
 });
 
 const LIVING_ROOM = { location: "living_room" };
-const MY_ROOM = { location: "my_room " };
+const MY_ROOM = { location: "my_room" };
 
 export async function getMetrics() {
   const deviceIds = process.env.SWITCHBOT_DEVICE_IDS.split(",");
