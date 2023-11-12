@@ -14,5 +14,6 @@ export const ctx = await context({
 });
 
 if (process.env.BUILD === "Docker") {
+  ctx.rebuild();
   ctx.dispose();
 }
