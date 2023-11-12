@@ -1,9 +1,7 @@
 import fastify from "fastify";
 import { getMetrics } from "./exporter";
 
-const server = fastify({
-  logger: true,
-});
+const server = fastify();
 
 server.get("/metrics", async function handler() {
   return getMetrics();

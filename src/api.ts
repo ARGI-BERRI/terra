@@ -4,7 +4,7 @@ import { generateHeader } from "./signature";
 const BASE_URL = "https://api.switch-bot.com/v1.1";
 
 async function fetchAPI(endpoint: string) {
-  log(`Connecting to ${endpoint}`);
+  log(`[${new Date().toISOString()}] Connecting to ${endpoint}`);
 
   const headers = generateHeader();
   const response = await fetch(endpoint, { headers });
