@@ -10,6 +10,13 @@ services:
       - ./docker/prometheus:/etc/prometheus
     restart: always
 
+  switchbot-exporter:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: terra-switchbot-exporter
+    restart: always
+
   node-exporter:
     image: prom/node-exporter
     container_name: terra-node-exporter
