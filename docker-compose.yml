@@ -35,6 +35,8 @@ services:
     image: grafana/grafana:main
     container_name: terra-grafana
     user: "$PID:$GID"
+    env_file:
+      - .env
     ports:
       - 9092:3000
     volumes:
