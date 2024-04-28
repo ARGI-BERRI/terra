@@ -29,6 +29,8 @@ services:
       - 9091:8428
     volumes:
       - ./docker/victoria-metrics:/victoria-metrics-data
+    command:
+      - "-retentionPeriod=1y"
     restart: always
 
   grafana:
