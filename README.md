@@ -9,7 +9,7 @@ Terra runs with Switchbot clusters, so you have to prepare them prior to use thi
 ## System structure
 
 - docker compose
-- _Terra_
+- Terra
 - Prometheus
 - Grafana
 
